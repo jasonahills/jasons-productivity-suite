@@ -18,4 +18,5 @@ export PATH=${PATH}:"${SCRIPT_DIR}"/bin
 if [[ x${JPS_ENABLE_TIL} == "xtrue" ]]
 then 
   ${SCRIPT_DIR}/src/random-file.sh '*.md' ${JPS_TIL_DIR} | xargs cat # TODO: use a better pretty printer for the markdown
+  echo ""  # Ensure we are on new line, even if file does not end with a newline.
 fi

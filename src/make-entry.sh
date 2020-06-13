@@ -17,13 +17,13 @@ fi
 
 # create the file name
 stamp=$(date "+%Y-%m-%d");
-dashedSubject=${subject// /-}
+dashedSubject=${subject// /-} # TODO: handle any characters we don't want in file paths
 filename="${stamp}_${dashedSubject}.md";
 filepath="${directory}/${filename}";
 
 # prep and open file
 # TODO: consider adding front matter
 echo "writing to $filepath";
-printf "\n# ${stamp} ${subject}\n\n" > "$filepath";
-# subl "${filepath}:4";  #we open on line 4; if this is a new file, that will be the last line.
-code ${directory} -g ${filepath}:4:0
+printf "# ${stamp} ${subject}\n\n" > "$filepath";
+# subl "${filepath}:3";  #we open on line 3; if this is a new file, that will be the last line.
+code ${directory} -g ${filepath}:3:0
